@@ -7,6 +7,7 @@ class Task {
         this.status = 'todo';
         this.createdAt = new Date();
         this.labels = [];
+        this.priority = 'medium';
     }
 
     updateStatus(status) {
@@ -24,6 +25,14 @@ class Task {
         this.labels.push(label);
     }
 }
+    setPriority(priority) {
+    const validPriorities = ['low', 'medium', 'high', 'urgent'];
+    if (validPriorities.includes(priority)) {
+        this.priority = priority;
+        return true;
+    }
+    return false;
+    }
 }
 
 module.exports = Task;
